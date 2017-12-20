@@ -10,18 +10,18 @@ const morgan = require('morgan')
 
 module.exports = createServer
 
-function createServer() {
+function createServer () {
     const app = express()
 
     /**
      * Add the dafualt errorhandler for express -> errorhandler -> https://www.npmjs.com/package/errorhandler
      */
 
-    app.use(errorhandler());
+    // HERE YOUR CODE
 
     // Set express server port
     app.set('port', process.env.PORT || 5000)
-
+    
     /**
      * Add the following middlewares to express configurations
      * response-time -> https://www.npmjs.com/package/response-time
@@ -31,17 +31,12 @@ function createServer() {
      * 
      */
 
-    // Set middleware
-    app.use(time());
-    app.use(compression());
-    app.use(responsePoweredBy("myApp"));
-    app.use(morgan('combined'));
+     // HERE YOUR CODE
     
-
 
     // Routes
     app.get('/test', (req, res, next) => {
-        res.status(200).json({ message: 'Ok from my first api endpoint' })
+        res.status(200).json({message: 'Ok from my first api endpoint'})
     })
 
     app.get('/error', (req, res, next) => {
@@ -50,7 +45,7 @@ function createServer() {
             res.send('My message from error request handler')
         } catch (err) {
             next(err)
-        }
+        }  
     })
 
     // Create http server and attach express app on it

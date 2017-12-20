@@ -12,10 +12,20 @@ module.exports = {
         return dbConnection
     },
 
-    async connect() {
+    async connect(host, port, dbName) {
       try {
-          let conn = `${cfg.database.protocol}://${cfg.database.host}:${cfg.database.port}/${cfg.database.name}`
-          let db = await MongoClient.connect(conn)
+          /**
+           * Refer to MongoDB driver documentation here:
+           * http://mongodb.github.io/node-mongodb-native/2.2/api/
+           * Search for MongoClient and Write code to get connection to MongoDB
+           * using parameter from your config module:
+           * database -> host
+           * database -> protocol
+           * database -> port 
+           * database -> name
+           */
+          var url = "mongodb://" + host + ":" + port + "/" + dbName;          
+          let db = await MongoClient.connect(url)
           dbConnection = db
           return db
       } catch (err) {

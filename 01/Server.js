@@ -12,8 +12,7 @@ const morgan = require('morgan')
  * Import your config module
  */
 
- //FACENDO IMPORT CONFIG, PRENDE AUTOMATICAMENTE IL FILE INDEX. IL FILE INDEX VIENE VISTO COME FILE PRINCIPALE
-const config = require('./config')
+// HERE YOUR CODE
 
 module.exports = createServer
 
@@ -28,9 +27,8 @@ function createServer () {
      * Use value under server -> port to dynamically assign the port to express app
      * Remove 5000 and substitute it with right config value
      */
-    
-    // app.set('port', process.env.PORT || 5000)
-    app.set('port', process.env.PORT || config.server.port)
+    // YOUR CODE HERE
+    app.set('port', process.env.PORT || 5000)
 
     app.use(time())
     app.use(compression())
