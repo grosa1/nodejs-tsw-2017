@@ -2,21 +2,30 @@
 
 module.exports = Post
 
-function Post(data = {}) {  //SE DATA NON LO PASSO, LO SETTA DI DEFAULT A VUOTO
+/* function Post(data = {}) {  //SE DATA NON LO PASSO, LO SETTA DI DEFAULT A VUOTO
     var _idAttribute = "_id";
     var _id = data._id || null;
     var author = data.author || '';
     var title = data.title || '';
     var body = data.body || '';
+} */
+
+function Post (data = {}) {
+    this._idAttribute = '_id'
+    this._id = data._id || null
+    this._author = data.author || ''
+    this._title = data.title || ''
+    this._body = data.body || ''
+    
 }
 
 Post.prototype.toJSON = function toJSON() {
     return {
         _id: this._id,
-        author: this.author,
-        title: this.title,
-        body: this.body
-    };
+        author: this._author,
+        title: this._title,
+        body: this._body
+    }
 }
 
 

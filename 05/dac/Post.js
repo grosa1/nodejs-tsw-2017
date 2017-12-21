@@ -22,8 +22,13 @@ module.exports = {
             
             //SU COLLECTION DI GRANDI DIMENSIONE CONVIENE FAR SCORRERE IL CURSORE INVECE CHE FARE TO ARRAY
             //SE DICHIARO UNA VARIABILE COME ?const o ?let, NON POSSO SUBIRE ATTACCHI DEL TIPO posts = '' CHE MI AZZERA IL CONETNUTO DI POST
+            
+/*             NON FUNZIONA
             let posts = await collection.find({}).toArray();
-            return posts.map(obj => new Post(obj));
+            return posts.map(obj => new Post(obj)); */
+
+            return (await collection.find({}).toArray())
+            .map(v => {return new Post(v)})
             
 
         } catch (err) {
